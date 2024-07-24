@@ -18,7 +18,7 @@ const NoteList = () => {
 
   const fetchTodos = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/todos/${userId}`);
+      const response = await axios.get(`https://notes-v2-mind.onrender.com/api/todos/${userId}`);
       setTodoList(response.data);
     } catch (error) {
       console.error('Error fetching todos:', error);
@@ -32,7 +32,7 @@ const NoteList = () => {
     const updatedTodo = { ...todo, isChecked: !todo.isChecked };
 
     try {
-      await axios.put(`http://localhost:3000/api/todos/${id}`, updatedTodo);
+      await axios.put(`https://notes-v2-mind.onrender.com/api/todos/${id}`, updatedTodo);
       setTodoList(todoList.map(todo => (todo.id === id ? updatedTodo : todo)));
     } catch (error) {
       console.error('Error updating todo:', error);
@@ -41,7 +41,7 @@ const NoteList = () => {
 
   const handleDeleteTodo = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/todos/${id}`);
+      await axios.delete(`https://notes-v2-mind.onrender.com/api/todos/${id}`);
       setTodoList(todoList.filter(todo => todo.id !== id));
     } catch (error) {
       console.error('Error deleting todo:', error);
