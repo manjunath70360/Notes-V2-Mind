@@ -49,37 +49,39 @@ const NoteList = () => {
   };
 
   return (
-    <div className="todos-bg-container">
-        <NavBar />
+  <div className="todos-bg-container">
+      <NavBar />
       <div className="container">
         <div className="row">
           <div className="col-12">
             <h1 className="todos-heading">My Notes</h1>
-            <ul className="todo-items-container">
-              {todoList.map(todo => (
-                <li key={todo.id} className="todo-item-container d-flex flex-row">
-                  <input
-                    type="checkbox"
-                    checked={todo.isChecked}
-                    onChange={() => handleTodoStatusChange(todo.id)}
-                    className="checkbox-input"
-                  />
-                  <div className={`label-container d-flex flex-row ${todo.isChecked ? 'checked' : ''}`}>
-                    <label
-                      htmlFor={`checkbox${todo.id}`}
-                      className="checkbox-label"
-                    >
-                      {todo.text}
-                    </label>
-                    <div className="delete-icon-container">
-                    <MdDelete size={20}
-                        onClick={() => handleDeleteTodo(todo.id)}
-                      />
+            {todoList.length === 0 ? (
+              <p className="empty-list-message">List is empty</p>
+            ) : (
+              <ul className="todo-items-container">
+                {todoList.map(todo => (
+                  <li key={todo.id} className="todo-item-container d-flex flex-row">
+                    <input
+                      type="checkbox"
+                      checked={todo.isChecked}
+                      onChange={() => handleTodoStatusChange(todo.id)}
+                      className="checkbox-input"
+                    />
+                    <div className={`label-container d-flex flex-row ${todo.isChecked ? 'checked' : ''}`}>
+                      <label
+                        htmlFor={`checkbox${todo.id}`}
+                        className="checkbox-label"
+                      >
+                        {todo.text}
+                      </label>
+                      <div className="delete-icon-container">
+                        <MdDelete size={20} onClick={() => handleDeleteTodo(todo.id)} />
+                      </div>
                     </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </div>
