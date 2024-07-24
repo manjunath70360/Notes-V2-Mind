@@ -133,6 +133,13 @@ align-items: center;
 justify-content: space-between;
 
 }
+.empty-list-message{
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 30%;
+}
 
 .checkbox-input {
     width: 20px;
