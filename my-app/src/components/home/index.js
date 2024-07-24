@@ -25,7 +25,7 @@ const Home = () => {
     };
 
     try {
-      await axios.post('http://localhost:3000/api/todos', newTodo);
+      await axios.post('https://notes-v2-mind.onrender.com/api/todos', newTodo);
       setTextInput('');
       alert('Added Successfully');
     } catch (error) {
